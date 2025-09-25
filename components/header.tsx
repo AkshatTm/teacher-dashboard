@@ -25,9 +25,14 @@ export function Header() {
           <div className="w-10 h-10 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-sm">
             <span className="text-white font-bold text-lg">FH</span>
           </div>
+          // Replace the header content
           <div>
-            <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">FacultyHub</h1>
-            <p className="text-sm text-slate-500 dark:text-slate-400">Teachers Dashboard</p>
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+              StudentHub
+            </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400">
+              Student Dashboard
+            </p>
           </div>
         </div>
 
@@ -48,7 +53,11 @@ export function Header() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="h-10 w-10 rounded-full">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-10 w-10 rounded-full"
+              >
                 <ThemeIcon className="h-5 w-5" />
               </Button>
             </DropdownMenuTrigger>
@@ -70,10 +79,16 @@ export function Header() {
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="sm" className="relative h-10 w-10 rounded-full">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="relative h-10 w-10 rounded-full"
+              >
                 <Avatar className="h-10 w-10">
                   <AvatarImage src="/teacher-avatar.png" alt="Teacher" />
-                  <AvatarFallback className="bg-indigo-100 text-indigo-700 font-semibold">JD</AvatarFallback>
+                  <AvatarFallback className="bg-indigo-100 text-indigo-700 font-semibold">
+                    JD
+                  </AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
@@ -96,5 +111,5 @@ export function Header() {
         </div>
       </div>
     </header>
-  )
+  );
 }

@@ -13,14 +13,13 @@ export default function Dashboard() {
 
         <main className="p-6">
           <div className="max-w-7xl mx-auto">
-            {/* Bento Grid Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-              {/* Hero Timetable Card - Takes up most space */}
+              {/* Class Schedule */}
               <div className="lg:col-span-8">
                 <Timetable />
               </div>
 
-              {/* Right Rail Cards */}
+              {/* Student Information */}
               <div className="lg:col-span-4">
                 <RightRail />
               </div>
@@ -29,5 +28,5 @@ export default function Dashboard() {
         </main>
       </div>
     </ThemeProvider>
-  )
+  );
 }

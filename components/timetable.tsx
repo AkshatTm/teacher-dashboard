@@ -34,6 +34,12 @@ const courses: Course[] = [
   { id: "4", code: "ENG102", name: "Technical Writing", color: "bg-orange-500" },
 ]
 
+const studentSpecificInfo = {
+  room: string,
+  teacher: string,
+  courseMaterials: string[]
+}
+
 const timetableEntries: TimetableEntry[] = [
   {
     id: "1",
@@ -143,19 +149,28 @@ export function Timetable() {
             </div>
             <div>
               <CardTitle className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
-                Weekly Timetable
+                My Class Schedule
               </CardTitle>
-              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Your teaching schedule overview</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                Your weekly class schedule and activities
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
-            <Button variant="outline" size="sm" className="rounded-full bg-transparent">
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full bg-transparent"
+            >
               <Filter className="h-4 w-4 mr-2" />
               Filter
             </Button>
             <Dialog>
               <DialogTrigger asChild>
-                <Button size="sm" className="rounded-full bg-indigo-600 hover:bg-indigo-700">
+                <Button
+                  size="sm"
+                  className="rounded-full bg-indigo-600 hover:bg-indigo-700"
+                >
                   <Plus className="h-4 w-4 mr-2" />
                   New Event
                 </Button>
@@ -165,7 +180,9 @@ export function Timetable() {
                   <DialogTitle>Create New Event</DialogTitle>
                 </DialogHeader>
                 <div className="p-4">
-                  <p className="text-slate-600 dark:text-slate-400">Mock dialog for creating new events.</p>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    Mock dialog for creating new events.
+                  </p>
                 </div>
               </DialogContent>
             </Dialog>
@@ -179,9 +196,9 @@ export function Timetable() {
               size="sm"
               className="rounded-full bg-transparent"
               onClick={() => {
-                const newDate = new Date(currentWeek)
-                newDate.setDate(currentWeek.getDate() - 7)
-                setCurrentWeek(newDate)
+                const newDate = new Date(currentWeek);
+                newDate.setDate(currentWeek.getDate() - 7);
+                setCurrentWeek(newDate);
               }}
             >
               <ChevronLeft className="h-4 w-4" />
@@ -194,9 +211,9 @@ export function Timetable() {
               size="sm"
               className="rounded-full bg-transparent"
               onClick={() => {
-                const newDate = new Date(currentWeek)
-                newDate.setDate(currentWeek.getDate() + 7)
-                setCurrentWeek(newDate)
+                const newDate = new Date(currentWeek);
+                newDate.setDate(currentWeek.getDate() + 7);
+                setCurrentWeek(newDate);
               }}
             >
               <ChevronRight className="h-4 w-4" />
@@ -217,7 +234,9 @@ export function Timetable() {
         {/* Desktop Grid View */}
         <div className="hidden md:block">
           <div className="grid grid-cols-7 gap-2 mb-4">
-            <div className="p-3 font-semibold text-center text-slate-600 dark:text-slate-400 text-sm">Time</div>
+            <div className="p-3 font-semibold text-center text-slate-600 dark:text-slate-400 text-sm">
+              Time
+            </div>
             {days.map((day, index) => (
               <div
                 key={day}
@@ -239,8 +258,8 @@ export function Timetable() {
                 <div className="text-xs text-slate-400">{slot.period}</div>
               </div>
               {days.map((_, dayIndex) => {
-                const entry = getEntryForSlot(dayIndex, slot.time)
-                const course = entry ? getCourse(entry.courseId) : null
+                const entry = getEntryForSlot(dayIndex, slot.time);
+                const course = entry ? getCourse(entry.courseId) : null;
 
                 return (
                   <div
@@ -254,7 +273,9 @@ export function Timetable() {
                             className={`p-3 rounded-lg cursor-pointer hover:opacity-90 transition-all hover:scale-105 ${course.color} text-white text-xs shadow-sm`}
                           >
                             <div className="font-semibold">{course.code}</div>
-                            <div className="truncate opacity-90">{course.name}</div>
+                            <div className="truncate opacity-90">
+                              {course.name}
+                            </div>
                             <div className="flex items-center justify-between mt-2 text-xs opacity-80">
                               <span>Sec {entry.section}</span>
                               <span>{entry.room}</span>
@@ -270,26 +291,42 @@ export function Timetable() {
                               <h4 className="font-semibold text-lg">
                                 {course.code} - {course.name}
                               </h4>
-                              <p className="text-sm text-slate-600 dark:text-slate-400">Section {entry.section}</p>
+                              <p className="text-sm text-slate-600 dark:text-slate-400">
+                                Section {entry.section}
+                              </p>
                             </div>
                             <div className="grid grid-cols-2 gap-4 text-sm">
                               <div>
-                                <span className="font-medium text-slate-700 dark:text-slate-300">Time:</span>
+                                <span className="font-medium text-slate-700 dark:text-slate-300">
+                                  Time:
+                                </span>
                                 <p className="text-slate-600 dark:text-slate-400">
                                   {entry.startTime} - {entry.endTime}
                                 </p>
                               </div>
                               <div>
-                                <span className="font-medium text-slate-700 dark:text-slate-300">Room:</span>
-                                <p className="text-slate-600 dark:text-slate-400">{entry.room}</p>
+                                <span className="font-medium text-slate-700 dark:text-slate-300">
+                                  Room:
+                                </span>
+                                <p className="text-slate-600 dark:text-slate-400">
+                                  {entry.room}
+                                </p>
                               </div>
                               <div>
-                                <span className="font-medium text-slate-700 dark:text-slate-300">Day:</span>
-                                <p className="text-slate-600 dark:text-slate-400">{days[entry.day]}</p>
+                                <span className="font-medium text-slate-700 dark:text-slate-300">
+                                  Day:
+                                </span>
+                                <p className="text-slate-600 dark:text-slate-400">
+                                  {days[entry.day]}
+                                </p>
                               </div>
                               <div>
-                                <span className="font-medium text-slate-700 dark:text-slate-300">Period:</span>
-                                <p className="text-slate-600 dark:text-slate-400">{entry.period}</p>
+                                <span className="font-medium text-slate-700 dark:text-slate-300">
+                                  Period:
+                                </span>
+                                <p className="text-slate-600 dark:text-slate-400">
+                                  {entry.period}
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -297,7 +334,7 @@ export function Timetable() {
                       </Dialog>
                     )}
                   </div>
-                )
+                );
               })}
             </div>
           ))}
@@ -310,29 +347,38 @@ export function Timetable() {
               key={day}
               className="border border-slate-200 dark:border-slate-700 rounded-xl p-4 bg-white dark:bg-slate-800"
             >
-              <h3 className="font-semibold mb-3 text-slate-900 dark:text-white">{day}</h3>
+              <h3 className="font-semibold mb-3 text-slate-900 dark:text-white">
+                {day}
+              </h3>
               <div className="space-y-3">
                 {timetableEntries
                   .filter((entry) => entry.day === dayIndex)
                   .map((entry) => {
-                    const course = getCourse(entry.courseId)
+                    const course = getCourse(entry.courseId);
                     return course ? (
                       <div
                         key={entry.id}
                         className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-700 rounded-lg"
                       >
-                        <div className={`w-4 h-4 rounded-full ${course.color}`} />
+                        <div
+                          className={`w-4 h-4 rounded-full ${course.color}`}
+                        />
                         <div className="flex-1">
-                          <div className="font-medium text-sm text-slate-900 dark:text-white">{course.code}</div>
+                          <div className="font-medium text-sm text-slate-900 dark:text-white">
+                            {course.code}
+                          </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400">
                             {entry.startTime} - {entry.endTime}
                           </div>
                         </div>
-                        <Badge variant="secondary" className="text-xs rounded-full">
+                        <Badge
+                          variant="secondary"
+                          className="text-xs rounded-full"
+                        >
                           {entry.room}
                         </Badge>
                       </div>
-                    ) : null
+                    ) : null;
                   })}
               </div>
             </div>
@@ -340,5 +386,5 @@ export function Timetable() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

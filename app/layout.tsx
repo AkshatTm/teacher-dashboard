@@ -7,10 +7,11 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "FacultyHub - Teachers Dashboard",
-  description: "A comprehensive dashboard for teachers to manage their timetables, classes, and academic activities",
+  title: "StudentHub - Student Dashboard",
+  description:
+    "A comprehensive dashboard for students to manage their classes and academic activities",
   generator: "v0.app",
-}
+};
 
 export default function RootLayout({
   children,

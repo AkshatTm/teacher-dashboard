@@ -23,16 +23,14 @@ interface SidebarProps {
 
 const navigation = [
   { name: "Dashboard", icon: LayoutDashboard, href: "#" },
-  { name: "Timetable", icon: Calendar, href: "#", active: true },
-  { name: "Classes", icon: Users, href: "#" },
-  { name: "Students", icon: GraduationCap, href: "#" },
-  { name: "Attendance", icon: UserCheck, href: "#" },
+  { name: "My Classes", icon: Calendar, href: "#", active: true },
   { name: "Assignments", icon: FileText, href: "#" },
-  { name: "Announcements", icon: Megaphone, href: "#" },
+  { name: "Grades", icon: TrendingUp, href: "#" },
   { name: "Resources", icon: FolderOpen, href: "#" },
+  { name: "Attendance", icon: UserCheck, href: "#" },
   { name: "Messages", icon: MessageSquare, href: "#" },
-  { name: "Settings", icon: Settings, href: "#" },
-]
+  { name: "Profile", icon: User, href: "#" },
+];
 
 export function Sidebar({ isOpen, onClose }: SidebarProps) {
   return (
